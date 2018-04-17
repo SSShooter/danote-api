@@ -1,0 +1,28 @@
+{
+  "name": "danote-api",
+  "version": "0.0.1",
+  "description": "danote restful api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssshooter/danote-api.git"
+  },
+  "keywords": [
+    "restful"
+  ],
+  "author": "ssshooter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ssshooter/danote-api/issues"
+  },
+  "homepage": "https://github.com/ssshooter/danote-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.14"
+  }
+}
