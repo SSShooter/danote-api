@@ -7,7 +7,7 @@ let app = express()
 
 let port = process.env.PORT || 8090
 
-var MemoApi = require('./api/memoApi')
+var MemoApi = require('./api/memo')
 var loginSys = require('./api/loginSys')
 
 // CORS
@@ -33,7 +33,7 @@ app.use(session({
   saveUninitialized: false, 
   secret: 'dddanote'
 }))
-
+// TODO apidoc 写文档
 app.use('/api',loginSys)
 
 app.use('/api/memo', MemoApi)

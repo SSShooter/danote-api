@@ -15,12 +15,15 @@ let memoSchema = Schema({
     require: true
   },
   title: {
-    type: String,
-    require: true
+    type: String
   },
   tags: {
     type: [Schema.Types.ObjectId]
   }
+})
+
+memoSchema.static('findByUserId', function(userId) {
+  return this.find({ author: userId })
 })
 
 memoSchema.pre('remove', function(next) {
