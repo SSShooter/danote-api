@@ -4,7 +4,7 @@
   "description": "danote restful api",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "doc":"apidoc -i api/ -o docs/"
   },
   "repository": {
     "type": "git",

@@ -7,8 +7,11 @@ let router = express.Router()
  * @apiName getUserAllMemo
  * @apiGroup Memo
  *
+ * @apiParam {String} [limit] Memo number per page
+ * @apiParam {String} [last] Id of last memo currently
+ * 
  * @apiSuccess {Number} code
- * @apiSuccess {Object} data
+ * @apiSuccess {Array} data
  * @apiSuccess {String} data.title
  * @apiSuccess {Array} data.date
  * @apiSuccess {Array} data.content

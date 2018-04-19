@@ -60,6 +60,7 @@ app.use((req, res, next) => {
 
 // error handler
 app.use((err, req, res, next) => {
+  err.data = null
   if (err.isServer) {
     // log the error...
     // probably you don't want to log unauthorized access

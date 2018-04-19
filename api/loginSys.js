@@ -3,19 +3,20 @@ let express = require('express')
 let router = express.Router()
 
 /**
- * @api {post} /login login
+ * @api {post} /login Login
  * @apiName login
- * @apiGroup login system
+ * @apiGroup Login system
  *
- * @apiParam {String} name  user's name
+ * @apiParam {String} name  username
  * @apiParam {String} password  user's password
  * @apiParamExample {json} Request-Example:
  *{
  *	"name":"ssshooter",
  *	"password":"1234567"
  *}
- * @apiSuccess {Number} code 0
- * @apiSuccess {Object} msg login
+
+ * @apiSuccess {Number} code Error code
+ * @apiSuccess {Object} msg Status description
  * @apiSuccessExample {json} Success-Response:
  * {
  *   "code":0,
@@ -42,9 +43,9 @@ let login = (req, res, next) => {
     .catch(err => next({ statusCode: 500, msg: err }))
 }
 /**
- * @api {post} /register register
+ * @api {post} /register Register
  * @apiName register
- * @apiGroup login system
+ * @apiGroup Login system
  *
  * @apiParam {String} name  username
  * @apiParam {String} password  user's password
@@ -54,8 +55,8 @@ let login = (req, res, next) => {
  *	"password":"1234567"
  *}
  *
- * @apiSuccess {Number} code
- * @apiSuccess {Object} msg
+ * @apiSuccess {Number} code Error code
+ * @apiSuccess {Object} msg Status description
  * @apiSuccessExample {json} Success-Response:
  * {
  *   "code":0,
