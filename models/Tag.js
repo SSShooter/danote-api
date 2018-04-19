@@ -23,6 +23,10 @@ let tagSchema = Schema({
   }
 })
 
+tagSchema.static('findByUserId', function(userId) {
+  return this.find({ author: userId })
+})
+
 tagSchema.pre('remove', function(next) {
   this.model('Memo').update(
     { tags: { $in: this.list } },
