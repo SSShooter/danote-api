@@ -1,27 +1,30 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
-let tagSchema = Schema({
-  author: {
-    type: Schema.Types.ObjectId,
-    index: true,
-    require: true
+let tagSchema = Schema(
+  {
+    author: {
+      type: Schema.Types.ObjectId,
+      index: true,
+      require: true
+    },
+    icon: {
+      type: String,
+      require: true
+    },
+    name: {
+      type: String,
+      require: true
+    },
+    list: {
+      type: [Schema.Types.ObjectId]
+    },
+    date: {
+      type: Date,
+      require: true
+    }
   },
-  icon: {
-    type: String,
-    require: true
-  },
-  name: {
-    type: String,
-    require: true
-  },
-  list: {
-    type: [Schema.Types.ObjectId]
-  },
-  date: {
-    type: Date,
-    require: true
-  }
-})
+  { timestamps: true }
+)
 
 tagSchema.static('findByUserId', function(userId) {
   return this.find({ author: userId })

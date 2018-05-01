@@ -130,7 +130,7 @@ define({ "api": [
   {
     "type": "put",
     "url": "/memo",
-    "title": "Add Tag",
+    "title": "Add Tag to a memo",
     "name": "addTag",
     "group": "Memo",
     "parameter": {
@@ -370,5 +370,115 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "api/memo.js",
     "groupTitle": "Memo"
+  },
+  {
+    "type": "post",
+    "url": "/memo",
+    "title": "Create Tag",
+    "name": "createTag",
+    "group": "Tag",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>tag name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>tag icon</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "code",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "api/tag.js",
+    "groupTitle": "Tag"
+  },
+  {
+    "type": "delete",
+    "url": "/tag/:id",
+    "title": "Delete Tag",
+    "name": "deleteTag",
+    "group": "Tag",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "code",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "api/tag.js",
+    "groupTitle": "Tag"
+  },
+  {
+    "type": "post",
+    "url": "/tag",
+    "title": "Get User All Tag",
+    "name": "getUserAllTag",
+    "group": "Tag",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "code",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "api/tag.js",
+    "groupTitle": "Tag"
   }
 ] });

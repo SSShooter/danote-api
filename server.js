@@ -7,8 +7,9 @@ let app = express()
 
 let port = process.env.PORT || 8090
 
-var MemoApi = require('./api/memo')
-var loginSys = require('./api/loginSys')
+let loginSys = require('./api/loginSys')
+let MemoApi = require('./api/memo')
+let TagApi = require('./api/tag')
 
 // CORS
 app.use('/api', function(req, res, next) {
@@ -22,10 +23,10 @@ app.use('/api', function(req, res, next) {
   next()
 })
 
-// 页面文件夹
+// static
 app.use(express.static('public'))
 
-// 处理请求体
+// process request body
 app.use(
   bodyParser.urlencoded({
     extended: true
@@ -33,7 +34,7 @@ app.use(
 )
 app.use(bodyParser.json())
 
-// 处理session
+// process session
 let session = require('express-session')
 app.use(
   session({
@@ -42,7 +43,7 @@ app.use(
     secret: 'dddanote'
   })
 )
-// TODO 数据分页
+
 app.use('/api', loginSys)
 
 // check login
@@ -53,6 +54,7 @@ app.use(function(req, res, next) {
 })
 
 app.use('/api/memo', MemoApi)
+app.use('/api/tag', TagApi)
 
 app.use((req, res, next) => {
   return next({ statusCode: 404 })

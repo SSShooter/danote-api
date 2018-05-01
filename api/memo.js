@@ -17,8 +17,9 @@ let router = express.Router()
  * @apiSuccess {Array} data.content
  */
 let getUserAllMemo = (req, res, next) => {
-  let limit = req.body.limit || 10
-  let lastId = req.body.last || ''
+  console.log('getUserAllMemo',req.query.last)
+  let limit = req.query.limit || 10
+  let lastId = req.query.last || '000000000000000000000000'
   Memo.find({
     author: req.session.userId,
     _id: { $gt: lastId }
@@ -104,7 +105,7 @@ let updateMemoById = (req, res, next) => {
 }
 
 /**
- * @api {put} /memo Add Tag
+ * @api {put} /memo Add Tag to a memo
  * @apiName addTag
  * @apiGroup Memo
  *
